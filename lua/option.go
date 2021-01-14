@@ -14,8 +14,8 @@ import (
 // Option can be provided to New() to customise initialization of Lua state.
 type Option func(l *Lua) error
 
-// WithContext sets a context to be used by the lua state.
-func WithContext(ctx context.Context) Option {
+// Context sets a context to be used by the lua state.
+func Context(ctx context.Context) Option {
 	return func(l *Lua) error {
 		if l.cancel != nil {
 			l.cancel()

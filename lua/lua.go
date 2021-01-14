@@ -11,7 +11,7 @@ import (
 // New returns a new Lua instance initialised. Options can be provided to
 // bind globals, register modules etc.
 func New(opts ...Option) (*Lua, error) {
-	opts = append([]Option{WithContext(context.Background())}, opts...)
+	opts = append([]Option{Context(context.Background())}, opts...)
 	l := &Lua{state: lua.NewState()}
 
 	for _, opt := range opts {
