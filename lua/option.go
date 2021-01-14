@@ -42,6 +42,7 @@ func Path(dirs ...string) Option {
 }
 
 // Globals sets all values in the map as global variables in the lua state.
+// See Module() to create a module from the map.
 func Globals(vals map[string]interface{}) Option {
 	return func(l *Lua) error {
 		for key, val := range vals {
@@ -54,6 +55,7 @@ func Globals(vals map[string]interface{}) Option {
 }
 
 // Module defines a Lua module with public struct fields and methods exported.
+// Use Globals() if you need to set the struct or the map as a single value.
 func Module(name string, structOrMap interface{}) Option {
 	name = strings.TrimSpace(name)
 	exports := createExportsMap(structOrMap)
