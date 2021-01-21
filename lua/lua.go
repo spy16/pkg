@@ -72,3 +72,6 @@ func (l *Lua) Destroy() {
 	l.state.Close()
 	l.state = nil
 }
+
+// State returns the internal LState.
+func (l *Lua) State() *lua.LState { return l.state }
