@@ -46,17 +46,17 @@ import (
 
 func main() {
 	backOff := retry.ExpBackoff(1.3, 0, 10*time.Second)
-	
+
 	ks := kafka.Streamer{
 		Workers:       10,
 		Topic:         "events",
 		Servers:       "localhost:9092",
 		ConsumerGroup: "pkg-simple-consumer",
 		Apply: func(ctx context.Context, key, val []byte) error {
-            return retry.Retry(ctx, 100, backOff, func() error {
-	            log.Printf("%s = %s", string(key), string(val))
-	            return nil
-            })
+			return retry.Retry(ctx, 100, backOff, func() error {
+				log.Printf("%s = %s", string(key), string(val))
+				return nil
+			})
 		},
 	}
 
