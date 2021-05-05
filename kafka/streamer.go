@@ -82,6 +82,7 @@ func (st *Streamer) init() (*kafka.ConfigMap, error) {
 	if st.Workers == 0 {
 		st.Workers = 1
 	}
+
 	return &kafka.ConfigMap{
 		"bootstrap.servers":               st.Servers,
 		"group.id":                        st.ConsumerGroup,
