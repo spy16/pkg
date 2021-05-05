@@ -53,6 +53,7 @@ func main() {
 		Servers:       "localhost:9092",
 		ConsumerGroup: "pkg-simple-consumer",
 		Apply: func(ctx context.Context, key, val []byte) error {
+			// instead of 100, use retry.Forever to do infinite retries.
 			return retry.Retry(ctx, 100, backOff, func() error {
 				log.Printf("%s = %s", string(key), string(val))
 				return nil
