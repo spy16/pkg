@@ -5,4 +5,4 @@
 Random, re-usable, probably useful packages.
 
 
-
+*Note: This repository is **NOT meant to be imported** in other projects. Packages in this repository will change without any regards to backward compatibility*.
