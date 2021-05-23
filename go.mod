@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/confluentinc/confluent-kafka-go v1.5.2 // indirect
+	github.com/edsrzf/mmap-go v1.0.0
 	github.com/google/go-cmp v0.5.4 // indirect
 	github.com/jhump/protoreflect v1.8.2
 	github.com/slack-go/slack v0.7.4
