@@ -28,6 +28,3 @@ func Exec(workingDir, name string, args ...string) ([]byte, error) {
 	return out, err
 }
 
-func cleanupGitErr(s string) string {
-	return strings.Replace(s, "fatal: ", "", -1)
-}
